@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .header img {
+            height: 50px;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+        }
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .cart-total {
+            font-size: 1.5em;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer button {
+            background-color: #007BFF; /* Changed from #4CAF50 to a darker blue for better contrast */
+            border: none;
+            color: white; /* Ensures high contrast against the darker background */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="fashion-store-icon.png" alt="Fashion Store Icon">
+        <h1>Fashion Store</h1>
+    </div>
+    <div class="product-list">
+    <!-- Product 1 -->
+    <div class="product">
+        <img src="product1.jpg" alt="Product 1">
+        <h2>Product 1</h2>
+        <p>$100</p>
+        <button onclick="addToCart(1, 'Product 1', 100)">Add to Cart</button>
+    </div>
+    <!-- Product 2 -->
+    <div class="product">
+        <img src="product2.jpg" alt="Product 2">
+        <h2>Product 2</h2>
+        <p>$150</p>
+        <button onclick="addToCart(2, 'Product 2', 150)">Add to Cart</button>
+    </div>
+    <!-- Product 3 -->
+    <div class="product">
+        <img src="product3.jpg" alt="Product 3">
+        <h2>Product 3</h2>
+        <p>$200</p>
+        <button onclick="addToCart(3, 'Product 3', 200)">Add to Cart</button>
+    </div>
+    <!-- Product 4 -->
+    <div class="product">
+        <img src="product4.jpg" alt="Product 4">
+        <h2>Product 4</h2>
+        <p>$250</p>
+        <button onclick="addToCart(4, 'Product 4', 250)">Add to Cart</button>
+    </div>
+    <!-- Product 5 -->
+    <div class="product">
+        <img src="product5.jpg" alt="Product 5">
+        <h2>Product 5</h2>
+        <p>$300</p>
+        <button onclick="addToCart(5, 'Product 5', 300)">Add to Cart</button>
+    </div>
+    <!-- Product 6 -->
+    <div class="product">
+        <img src="product6.jpg" alt="Product 6">
+        <h2>Product 6</h2>
+        <p>$350</p>
+        <button onclick="addToCart(6, 'Product 6', 350)">Add to Cart</button>
+    </div>
+    <!-- Product 7 -->
+    <div class="product">
+        <img src="product7.jpg" alt="Product 7">
+        <h2>Product 7</h2>
+        <p>$400</p>
+        <button onclick="addToCart(7, 'Product 7', 400)">Add to Cart</button>
+    </div>
+    <!-- Product 8 -->
+    <div class="product">
+        <img src="product8.jpg" alt="Product 8">
+        <h2>Product 8</h2>
+        <p>$450</p>
+        <button onclick="addToCart(8, 'Product 8', 450)">Add to Cart</button>
+    </div>
+    <!-- Product 9 -->
+    <div class="product">
+        <img src="product9.jpg" alt="Product 9">
+        <h2>Product 9</h2>
+        <p>$500</p>
+        <button onclick="addToCart(9, 'Product 9', 500)">Add to Cart</button>
+    </div>
+    <!-- Product 10 -->
+    <div class="product">
+        <img src="product10.jpg" alt="Product 10">
+        <h2>Product 10</h2>
+        <p>$550</p>
+        <button onclick="addToCart(10, 'Product 10', 550)">Add to Cart</button>
+    </div>
+</div>
+
+    </div>
+    <div class="cart">
+        <h2>Cart</h2>
+        <div id="cart-items"></div>
+        <p class="cart-total">Total: $<span id="total">0</span></p>
+    </div>
+    <div class="footer">
+        <button onclick="checkout()">Checkout</button>
+        <button onclick="contactUs()">Contact Us</button>
+    </div>
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(id, name, price) {
+            cart.push({id, name, price});
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            let cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                cartItems.innerHTML += `<p>${item.name} - $${item.price}</p>`;
+            });
+            document.getElementById('total').innerText = total;
+        }
+
+        function checkout() {
+            alert('Checking out...');
+            // Implement checkout logic here
+        }
+
+        function contactUs() {
+            alert('Contacting us...');
+            // Implement contact logic here
+        }
+    </script>
+</body>
+</html>
